@@ -13,9 +13,9 @@
 - [ ] autoconf
 
 ## git （qniu）
-- [x] 概念及常用操作
-- [x] github使用
-- [x] github markdown格式
+- [x] ~~概念及常用操作~~: [git](git_tutorial/git.md)
+- [x] ~~github使用~~
+- [x] ~~github markdown格式~~: [https://help.github.com/en/articles/basic-writing-and-formatting-syntax](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 
 ## Linux基本概念（nina）
 - [ ] 系统调用

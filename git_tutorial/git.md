@@ -1,4 +1,5 @@
 
+
 # git基础概念
 
 ## git track文件的三种状态
@@ -153,10 +154,23 @@ git add的时候会忽略掉项目目录下“.gitignore”文件里面列出来
 如果又什么文件不想让git track，把它的名字写在。gitignore里面就好了。
 
 ### git mv
-// TODO
+如果要把一个文件移到另一个目录下，并将这个改动保存在暂存区中，需要进行以下三步操作：
+```bash
+$ mv file1 dir/file2
+$ git rm file1
+$ git add dir/file2
+```
+或者简单点，直接使用git mv命令，只需要一步
+```bash
+$ git mv file1 dir/file2
+```
 
 ### git rm
-//TODO
+如果有一些文件没有用了，我们用rm命令把它删掉，但是在git仓库中，这个文件依然存在。所以我们要告诉git 我们把文件删除掉了
+```bash
+$ git rm file
+```
+这里需要注意的是git rm命令包括了在删除工作区该文件的功能，所以如果要删除文件，只需要执行这一条命令就好。
 
 ### git commit
 
@@ -184,10 +198,29 @@ $ git commit -m "message about this commit"
 	```
 一般来说，如果共同工作，每个特性都应该创建一个新的分支。不要直接对master或develop分支进行改动，更不应该直接push到master或develop分支。
 
-//TODO: git checkout -- filename
+* 撤销工作区的修改
+
+如果在工作区对文件进行了修改，但是我们觉得这些修改没有用，想要撤销，让某个文件和暂存区保持一致可以使用：
+```bash
+$ git checkout -- filename
+```
+这个命令不用记，使用`git status`命令的时候会给出提示
 
 ### git branch
-//TODO
+* 查看本地分支
+```bash
+$ git branch
+```
+
+* 查看所有分支
+```bash
+$ git branch -a
+```
+
+* 删除分支
+```bash
+$ git branch -D branch_name
+```
 
 ### git pull
 在共同合作的场景下，如果有其他人把代码上传到远程服务器上，你又想在你的分支中使用那段代码的话，可以使用git pull命令。
@@ -209,20 +242,72 @@ $ git status
 ```
 平时我在使用其他git命令的之前，都会先看看git status，以便决定下一步应该进行什么操作。
 
-### git stash
-//TODO
-
-### git rebase
-//TODO
-
-### git merge
-//TODO
-
 ### git diff
-//TODO
+做个小实验：
+```bash
+$ echo "abcde" >> README.md
+$ git add README.md
+$ echo "12345" >> README.md
+$ git status
+On branch qniu/gitUserGuide
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
 
-### git fetch
-//TODO
+	modified:   README.md
 
-### git log
-//TODO
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   README.md
+```
+这个时候暂存区比git仓库多了一行“abcde”，
+工作区又比暂存区多了一行“12345”
+
+* 比较工作区和暂存区
+```bash
+$ git diff README.md
+
+diff --git a/README.md b/README.md
+index e7dfaf4..5b8d976 100644
+--- a/README.md
++++ b/README.md
+@@ -75,3 +75,4 @@
+ * 参与linux仓库的开发，或者自己想一个项目
+
+ afshdsjk
++123456
+(END)
+```
+
+* 比较暂存区和git仓库
+```bash
+$ git diff --staged README.md
+
+diff --git a/README.md b/README.md
+index d150184..e7dfaf4 100644
+--- a/README.md
++++ b/README.md
+@@ -74,3 +74,4 @@
+ ### 内容
+ * 参与linux仓库的开发，或者自己想一个项目
+
++afshdsjk
+```
+
+* 比较工作区和git仓库
+```bash
+$ git diff HEAD README.md
+
+diff --git a/README.md b/README.md
+index d150184..5b8d976 100644
+--- a/README.md
++++ b/README.md
+@@ -74,3 +74,5 @@
+ ### 内容
+ * 参与linux仓库的开发，或者自己想一个项目
+
++afshdsjk
++123456
+```
+HEAD代表当前git仓库中保存的commit id
