@@ -311,3 +311,6 @@ index d150184..5b8d976 100644
 +123456
 ```
 HEAD代表当前git仓库中保存的commit id
+
+## How to write markdown doc
+[markdown syntax](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
