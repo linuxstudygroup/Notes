@@ -19,7 +19,7 @@
 * 暂存区
 * git仓库
 
-**除此之外，git还有一个未跟踪的状态，表示文件还没有被git系统跟踪，如果想要让git仓库跟踪某个文件，需要认为的将文件状态改为已跟踪**
+**除此之外，git还有一个未跟踪的状态，表示文件还没有被git系统跟踪，如果想要让git仓库跟踪某个文件，需要人为的将文件状态改为已跟踪**
 
 ![git workspace](resource/workspace.png)
 
@@ -311,3 +311,6 @@ index d150184..5b8d976 100644
 +123456
 ```
 HEAD代表当前git仓库中保存的commit id
+
+## How to write markdown doc
+[markdown syntax](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
