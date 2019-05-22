@@ -1,5 +1,7 @@
 # Prerequisites
+.DS_Store
 *.d
+*.i
 
 # Object files
 *.o
@@ -50,3 +52,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+c_language/source/
