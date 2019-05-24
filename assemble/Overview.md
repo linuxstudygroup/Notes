@@ -80,9 +80,9 @@ pi ->      | 61 |    0x12 + base_addr
            | 6C |    0x06 + base_addr
            | 65 |    0x05 + base_addr
 message -> | 48 |    0x04 + base_addr
-	       | 00 |    0x03 + base_addr
-	       | 00 |    0x02 + base_addr
-	       | 00 |    0x01 + base_addr
+           | 00 |    0x03 + base_addr
+           | 00 |    0x02 + base_addr
+           | 00 |    0x01 + base_addr
 value ->   | 96 |    0x00 + base_addr
 
 value == 0x00 + base_addr
