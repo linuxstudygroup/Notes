@@ -35,7 +35,7 @@
 
 ## x86架构及汇编初级
 - [ ] 实模式和保护模式
-- [ ] 寄存器简介
+- [x] 寄存器简介
 - [ ] 汇编初级
 - [x] 实验1: 使用virtualBox 安装操作系统，及virtualbox的常见使用方法
 - [ ] 实验2: 开发一个hello world的bootloader image，并在虚拟机上调试运行
