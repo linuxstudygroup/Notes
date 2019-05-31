@@ -6,7 +6,7 @@ layout: home
 ---
 
 <ul>
-{% for cate in site.data.cates %}
-    <li>{{ cate }}</li>
+{% for cate in site.data.categories %}
+    <li><a href="/{{ cate }}">{{ cate }}</a></li>
 {% endfor %}
 </ul>
