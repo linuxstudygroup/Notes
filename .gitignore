@@ -54,3 +54,8 @@ Mkfile.old
 dkms.conf
 
 c_language/source/
+
+# jekyll
+_site
+.sass-cache
+.jekyll-metadata

@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<script type="text/javascript">
+    $(function(){
+            function animateBar($item, noAni){
+                var spanLeft = $item.find('span').offset().left;
+                var conLeft = $item.parent().offset().left;
+                var left = spanLeft - conLeft;
+                var width = $item.find('span').width() + 8;
+
+                if(noAni){
+                    $('#categoryBar').css({left:left, width:width});
+                }else{
+                    $('#categoryBar').stop().animate({left:left, width:width}, 300)
+                }
+            }
+
+            var waitForFinalEvent = (function(){
+                var timers = {};
+                return function(callback, ms, uniqueId){
+                    if(!uniqueId){
+                        uniqueOd = "Don't call this twice without a uniqueId";
+                    }
+                    if(timers[uniqueId]){
+                        clearTimeout(timers[uniqueId]);
+                    }
+                    timers[uniqueId] = setTimeout(callback, ms);
+                }
+            })();
+
+            
+    });
+
+</script>
